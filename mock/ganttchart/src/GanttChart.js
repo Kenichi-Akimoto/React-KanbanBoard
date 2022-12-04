@@ -4,10 +4,11 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import jsonData from './data.json';
-import { BrowserRouter, Switch, Route, Link,NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const  GanttChart = () => {
+  const navigate = useNavigate();
   useLayoutEffect(() => {
     
   let root = am5.Root.new("chartdiv");
@@ -102,7 +103,16 @@ const  GanttChart = () => {
   }, []);
 
   return (
-    <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
+    <div className="ganttchart"> 
+      <h1>ガントチャート</h1>
+      <button
+        className="Task_btn"
+        onClick={() => navigate('/Task')}
+      >
+        タスク画面
+      </button>
+      <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
+    </div>
   );
 }
 export default GanttChart;
