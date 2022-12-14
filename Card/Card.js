@@ -1,14 +1,8 @@
-import React from 'react';
-import CardBase from './CardBase';
+import Event from "./Event"
 import './Card.css';
 
-function Card() {
-  return　(
+function Card(props) {
+    return <Event content = {props.content} date = {props.date} lineColor = {props.lineColor} description = {props.description} />;
+  }
 
-            <CardBase />
-
-            );
-}
-
-export default Card;
-
+  export default Card;

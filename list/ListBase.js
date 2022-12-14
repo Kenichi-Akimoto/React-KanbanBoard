@@ -2,9 +2,9 @@ import Event from "./Event"
 import Title from "./Title"
 import Button from "./Button"
 
-function CardBase(props) {
-    return <div>
-              <table class="card">
+function ListBase(props) {
+    return <div style="flexbox">
+              <table class="list">
                 <tbody>
                   <Title content = "仕事" />
                   <Event content = "会議" date = "1/23 -1/25" color = "blueLine" />
