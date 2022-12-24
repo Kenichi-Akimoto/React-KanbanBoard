@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import GanttChart from './GanttChart.js';
+import GanttChart from './GanttChart/GanttChart.js';
 import {Routes, Route,BrowserRouter} from "react-router-dom";
 import Task from './TaskTest.js';
+import ListEdit from "./ListEdit/ListEdit.js"
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<GanttChart />} />
-          <Route path="/Task" exact element={<Task />} />
+          <Route path="/Task" exact element={<ListEdit />} />
         </Routes>
       </BrowserRouter>
     </div>
