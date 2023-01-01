@@ -1,16 +1,23 @@
 import List from "../Card/List"
 import dataJson from "../data.json"
 import './ListEdit.css';
+import { useNavigate } from "react-router-dom";
 
 function ListEdit(props) {
+  const navigate = useNavigate();
     return <div class="interface">
               <div class="listEdit">
                 {ListBuildFunc()}
               </div>
-              <div class="addList">
-                {ListBuilder}
-              </div>
-            </div>;
+                                  <button
+        className="Task_btn"
+        onClick={() => navigate('/GanttChart')}
+      >
+        ガントチャート画面
+      </button>
+
+            </div>
+            ;
   }
 
   const ListBuilder = <List listName = "Done" />;

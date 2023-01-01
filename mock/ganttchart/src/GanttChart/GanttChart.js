@@ -40,20 +40,20 @@ const  GanttChart = () => {
   // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
   let yAxis = chart.yAxes.push(
     am5xy.CategoryAxis.new(root, {
-      categoryField: "description",
+      categoryField: "task",
       renderer: am5xy.AxisRendererY.new(root, {}),
       tooltip: am5.Tooltip.new(root, {})
     })
   );
 
-  const descriptionList = jsonData.cards.map(obj => obj.description); 
-  const descriptionArray =[];
+  const taskList = jsonData.cards.map(obj => obj.task); 
+  const taskArray =[];
 
-  for(let member of descriptionList){
-   descriptionArray.push({ description: member });
+  for(let member of taskList){
+   taskArray.push({ task: member });
   };
 
-  yAxis.data.setAll(descriptionArray);
+  yAxis.data.setAll(taskArray);
 
   let xAxis = chart.xAxes.push(
     am5xy.DateAxis.new(root, {
@@ -69,13 +69,13 @@ const  GanttChart = () => {
     yAxis: yAxis,
     openValueXField:  "start",
     valueXField: "end",
-    categoryYField: "description",
+    categoryYField: "task",
     sequencedInterpolation: true
   }));
 
   series.columns.template.setAll({
     strokeOpacity: 0,
-    tooltipText: "{task}:\n[bold]{openValueX}[/] - [bold]{valueX}[/]"
+    tooltipText: "{description}:\n[bold]{openValueX}[/] - [bold]{valueX}[/]"
   });
  
 
@@ -106,7 +106,7 @@ const  GanttChart = () => {
       <h1>ガントチャート</h1>
       <button
         className="Task_btn"
-        onClick={() => navigate('/Task')}
+        onClick={() => navigate('/')}
       >
         タスク画面
       </button>

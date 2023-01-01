@@ -10,8 +10,8 @@ const App = () => {
     <div className="container">
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<GanttChart />} />
-          <Route path="/Task" exact element={<ListEdit />} />
+          <Route path="/" exact element={<ListEdit />} />
+          <Route path="/GanttChart" exact element={<GanttChart />} />
         </Routes>
       </BrowserRouter>
     </div>

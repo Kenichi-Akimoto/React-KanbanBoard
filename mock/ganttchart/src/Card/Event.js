@@ -13,12 +13,21 @@ function Event(props) {
                     <td class = "event">{props.content}</td>
                   </tr>
                   <tr>
-                    <td class = "event">{props.date}</td>
+                    <td class = "event">{dateFormat(props.date)}</td>
                   </tr>
             </tbody>
            
         </div></Tooltip>
-  }
-   
-  export default Event;
+}
+
+function dateFormat(date){
+  var formatDate = new Date(date)
+  return formatDate.getFullYear() + "-" 
+    + ("00" + (formatDate.getMonth() + 1)).slice(-2) + "-" 
+    + ("00" + formatDate.getDate()).slice(-2) + " " 
+    + formatDate.getHours().toString().padStart(2, '0') + ":"
+    + formatDate.getMinutes().toString().padStart(2, '0');
+}
+
+export default Event;
 
