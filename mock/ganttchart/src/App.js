@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import GanttChart from './GanttChart/GanttChart.js';
 import {Routes, Route,BrowserRouter} from "react-router-dom";
-import Task from './TaskTest.js';
 import ListEdit from "./ListEdit/ListEdit.js"
 
 const App = () => {

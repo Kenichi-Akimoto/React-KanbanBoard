@@ -3,7 +3,7 @@ import Tooltip from "./Tooltip/Tooltip";
 
 function Event(props) {
   const lineColor = {backgroundColor : props.lineColor};
-    return <Tooltip content={props.description}>
+    return <Tooltip content={props.description} cardName={props.content}>
               <div class = "cardbk" >
                 <tbody>
                   <tr>

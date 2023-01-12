@@ -12,3 +12,8 @@
 .interface {
   display: flex;
 }
+
+.Task_btn {
+  width: 20em;
+  height: 3em;
+}

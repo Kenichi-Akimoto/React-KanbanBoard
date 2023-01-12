@@ -1,37 +1,44 @@
 import React, { Component } from 'react';
-import jsonData from './data.json';
+import jsonData from '../data.json';
 export default class OpenDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardName : 'カード名値',
-      labels : ['ラベル1', 'ラベル2', 'ラベル3'],
-      explain : '説明値',
-      date : '2022/12/31',
-      callback : this.props.callback
     };
 
-    this.CallBackFunction = this.CallBackFunction.bind(this);
     this.jsonRead = this.jsonRead.bind(this);
     this.onloadFnc = this.onloadFnc.bind(this);
-  }
-  
-  CallBackFunction(){
-    // detail側のstateに値を設定
-    this.state.callback( this.state ) ;
   }
 
   jsonRead(){
     // ➀this.propsからkeyNameを使用し、jsonからデータを引き出す。
+    const kName = this.props.keyName;
+    const matchData = jsonData.cards.filter(function(data){
+      return data.task === kName;
+    })
 
-    // ➁引き出したデータをthis.stateに設定する
+    let jData  = {
+      cardName : '',
+      //labels : ['ラベルA', 'ラベルB', 'ラベルC'],
+      explain : '',
+      startDate : '',
+      endDate : ''
+    };
 
+    // ➁引き出したデータを戻り値に設定する
+    console.log("matchData.length[" + matchData.length);
+    if (matchData.length !== 0){
+      jData.cardName = matchData[0].task;
+      jData.list_name = matchData[0].list_name;
+      jData.explain = matchData[0].description;
+      jData.startDate = matchData[0].start;
+      jData.endDate = matchData[0].end;
+    }
+    return jData;
   }
 
   onloadFnc(){
-    this.setState( { explainState : 1 } ) ;
-    this.jsonRead();
-    this.CallBackFunction();
+    this.props.cbDataGet( this.jsonRead() )
   }
 
   //<input type="button" value="初期表示" onClick ={( event ) => { this.onloadFnc() ; }} />
